@@ -62,12 +62,12 @@ a {
   border-bottom: black solid 2px;
 }
 
-a.design {
+.design {
   font-weight: 400;
   border-bottom: solid var( --color-design ) 8px;
 }
 
-a.research {
+.research {
   font-weight: 400;
   border-bottom: solid var( --color-research ) 8px;
 }
