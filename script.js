@@ -22,8 +22,6 @@ const app = {
 
       elements.forEach( delayLoop( apply, delay ) );
 
-      console.log( 'app.effects.initialize(' + effect + ',' +  delay + ') ran' );
-
     },
 
     initialize : function() {
@@ -36,36 +34,86 @@ const app = {
 
       }, 400 );
 
-      console.log( 'app.effects.initialize() ran' );
+    }
+
+  },
+
+  load : {
+
+    initialize : function() {
+
+      window.addEventListener( 'load', () => {
+
+        setTimeout( () => {
+
+          app.element.dataset.status = 'loaded'
+          app.effects.initialize()
+
+        }, 600 )
+
+      } )
+
+    },
+
+  },
+
+  pages : {
+
+    open : function( page ) {
+
+      app.element.dataset.open = page
+
+    },
+
+    close : function() {
+
+      app.element.dataset.open = ''
+
+    },
+
+    initialize : function() {
+
+      let triggers = document.querySelectorAll( '[data-page]' );
+
+      for ( let trigger of triggers ) {
+
+        trigger.addEventListener( 'click', function() {
+
+          let page = this.dataset.page
+
+          app.pages.open( page )
+
+        } )
+
+      }
+
+      let closers = document.querySelectorAll( '[data-close]' );
+
+      for ( let closer of closers ) {
+
+        closer.addEventListener( 'click', function( event ) {
+
+          if ( this === event.target ) {
+
+            app.pages.close()
+
+          }
+
+        } )
+
+      }
 
     }
 
   },
 
-  load : function() {
-
-    setTimeout( () => {
-
-      app.element.dataset.status = 'loaded';
-
-      app.effects.initialize();
-
-        console.log( 'app.load() -> setTimeout ran' );
-
-    }, 600 );
-
-    console.log( 'app.load() ran' );
-
-  },
-
   initialize : function() {
 
-    window.addEventListener( 'load', app.load() );
-
-    console.log( 'app.initialize() ran' );
+    app.load.initialize()
+    app.pages.initialize()
 
   }
 
 }
 
-app.initialize();
+app.initialize()
