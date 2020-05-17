@@ -1,0 +1,252 @@
+:root {
+  --color-design: #FF906C;
+  --color-research: #EC75FF;
+  --radius: 240px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 72px;
+}
+
+.kicker {
+  letter-spacing: .05em;
+  font-weight: 700;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  margin: 0 0 1em;
+}
+
+p + p {
+  margin-top: 24px;
+}
+
+hr {
+  border: 0;
+  border-top: 2px dotted black;
+  height: 0px;
+}
+
+a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: black solid 2px;
+}
+
+a.design {
+  font-weight: 400;
+  border-bottom: solid var( --color-design ) 8px;
+}
+
+a.research {
+  font-weight: 400;
+  border-bottom: solid var( --color-research ) 8px;
+}
+
+img {
+  display: block;
+}
+
+article {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: var(--radius) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  padding: 0 calc( var(--radius) * .5 );
+  max-width: calc( 800px + var(--radius) );
+}
+
+.container + .container {
+  margin-top: 96px;
+}
+
+.canvas,
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.canvas {
+  background: #eee;
+}
+
+.circles {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: rotate;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+.circle {
+  position: relative;
+  width: 1px;
+  height: 1px;
+  margin: calc( var(--radius) / 2 );
+  border-radius: 50%;
+  backface-visibility: hidden;
+  perspective: 1000;
+  opacity: .9;
+}
+
+.circle.design {
+  background: var(--color-design);
+  box-shadow: 0 0 var(--radius) var(--radius) var(--color-design);
+  animation-name: float;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.circle.research {
+  background: var(--color-research);
+  box-shadow: 0 0 var(--radius) var(--radius) var(--color-research);
+  animation-name: float;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes float {
+  0%   { transform: translateX( calc( var(--radius) * 0.0 ) ) translateZ(0) }
+  20%  { transform: translateX( calc( var(--radius) * 0.5 ) ) translateZ(0) }
+  40%  { transform: translateX( calc( var(--radius) * 1.0 ) ) translateZ(0) }
+  60%  { transform: translateX( calc( var(--radius) * 1.5 ) ) translateZ(0) }
+  80%  { transform: translateX( calc( var(--radius) * 0.5 ) ) translateZ(0) }
+  100% { transform: translateX( calc( var(--radius) * 0.0 ) ) translateZ(0) }
+}
+
+@keyframes rotate {
+  0%   { transform: rotate( 0deg ) translateZ(0) }
+  100% { transform: rotate( 360deg ) translateZ(0)  }
+}
+
+.profile {
+  width: 144px;
+  border-radius: 999px;
+  margin: 0 0 1.5em;
+  overflow: hidden;
+}
+
+footer {
+  padding: calc( var(--radius) * .5 ) 0 0;  
+}
+
+footer ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.annotation {
+  margin-top: 96px;
+  font-size: 12px;
+  opacity: .5;
+}
+
+::-moz-selection {
+  background: rgba( 0, 0, 0, .15 );
+}
+
+::selection {
+  background: rgba( 0, 0, 0, .15 );
+}
+
+@media (max-width: 640px) {
+  
+  :root {
+    --radius: 125px;
+  }
+  
+  body {
+    font-size: 18px;
+  }
+  
+  .container {
+    padding: 0 calc( var(--radius) * .25 );
+  }
+  
+  h1 {
+    font-size: 36px;
+    line-height: 1.25;
+  }
+  
+  .profile {
+    width: 100px;
+  }
+  
+  a.design {
+    border-bottom: solid var( --color-design ) 4px;
+  }
+
+  a.research {
+    border-bottom: solid var( --color-research ) 4px;
+  }
+
+  p + p {
+    margin-top: 18px;
+  }
+  
+  article {
+    padding: calc( var(--radius) * .75 ) 0;
+  }
+
+  .overlay {
+    background-size: 50%;
+  }
+  
+}
+
+.overlay {
+  background-image: url(media/noise.png)
+}
