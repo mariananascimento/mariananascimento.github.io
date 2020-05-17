@@ -596,7 +596,7 @@ footer ul {
   }
 
   #work ul {
-    padding: calc( var(--radius) * 1 ) 0 calc( var(--radius) * 2 );
+    padding: calc( var(--radius) * 1 ) 0 calc( var(--radius) * 1 );
   }
 
   #work li {
