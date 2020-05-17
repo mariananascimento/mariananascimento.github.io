@@ -2,7 +2,7 @@
   --color-design: #FF906C;
   --color-research: #EC75FF;
   --color-mixed: #F683B6;
-  --color--: #EEEEEE;
+  --color-background: #EEEEEE;
   --radius: 240px;
 }
 
@@ -164,7 +164,8 @@ article {
 }
 
 .overlay {
-  background-image: url(media/noise.png)
+  background-image: url(media/noise.png);
+  background-size: 288px;
 }
 
 .circles {
@@ -333,6 +334,10 @@ footer ul {
   pointer-events: none;
 }
 
+[data-close] {
+  cursor: pointer;
+}
+
 .pages button[data-close] {
   position: relative;
   top: 0;
@@ -368,6 +373,7 @@ footer ul {
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  cursor: default;
 }
 
 .page p {
@@ -509,7 +515,8 @@ footer ul {
   bottom: calc( var(--radius) * 0 );
   left: calc( var(--radius) * 0 );
   background-image: url(media/noise.png);
-  background-size: 100%;
+  background-repeat: repeat;
+  background-size: 288px;
 }
 
 #work li[data-design] .frame::before {
@@ -592,8 +599,9 @@ footer ul {
     padding: calc( var(--radius) * .75 ) 0;
   }
 
-  .overlay {
-    background-size: 50%;
+  .overlay,
+  #work .frame::after {
+    background-size: 144px;
   }
 
   #work ul {
@@ -610,10 +618,6 @@ footer ul {
 
   #work figure {
     max-width: 144px;
-  }
-
-  #work .frame::after {
-    background-size: 50%;
   }
 
   .page {
