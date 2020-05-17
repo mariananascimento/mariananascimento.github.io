@@ -358,7 +358,7 @@ footer ul {
   bottom: calc( var(--radius) * .25 );
   left: calc( var(--radius) * .25 );
   margin: 0 auto;
-  transform: translateY( 100vh );
+  transform: translateY( 110vh );
   pointer-events: none;
 }
 
