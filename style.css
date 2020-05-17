@@ -2,7 +2,7 @@
   --color-design: #FF906C;
   --color-research: #EC75FF;
   --color-mixed: #F683B6;
-  --color-background: #EEEEEE;
+  --color--: #EEEEEE;
   --radius: 240px;
 }
 
@@ -509,6 +509,7 @@ footer ul {
   bottom: calc( var(--radius) * 0 );
   left: calc( var(--radius) * 0 );
   background-image: url(media/noise.png);
+  background-size: 100%;
 }
 
 #work li[data-design] .frame::before {
@@ -609,6 +610,10 @@ footer ul {
 
   #work figure {
     max-width: 144px;
+  }
+
+  #work .frame::after {
+    background-size: 50%;
   }
 
   .page {
