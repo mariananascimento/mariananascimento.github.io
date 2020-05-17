@@ -86,6 +86,7 @@ button.link {
   font-weight: 700;
   text-decoration: none;
   border-bottom: black solid 2px;
+  transition: opacity .4s;
 }
 
 h1 .design {
@@ -112,20 +113,14 @@ button {
   -moz-appearance: none;
   box-shadow: none;
   outline: 0;
-  transition: all .4s;
+  transition: opacity .4s;
 }
 
 button:hover,
-button:focus {
+button:focus,
+a:hover,
+a:focus {
   opacity: .5 !important;
-}
-
-button:focus {
-
-}
-
-button:active {
-
 }
 
 img {
@@ -360,10 +355,10 @@ footer ul {
   max-width: calc( 1280px - calc( var(--radius) * .5 ) );
   top: calc( var(--radius) * .25 );
   right: calc( var(--radius) * .25 );
-  bottom: calc( var(--radius) * 0 );
+  bottom: calc( var(--radius) * .25 );
   left: calc( var(--radius) * .25 );
   margin: 0 auto;
-  transform: translateY( 100% );
+  transform: translateY( 100vh );
   pointer-events: none;
 }
 
@@ -619,7 +614,7 @@ footer ul {
   .page {
     top: calc( var(--radius) * .125 );
     right: calc( var(--radius) * .125 );
-    bottom: calc( var(--radius) * 0 );
+    bottom: calc( var(--radius) * .125 );
     left: calc( var(--radius) * .125 );
   }
 
