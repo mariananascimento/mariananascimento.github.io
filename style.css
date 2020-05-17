@@ -11,10 +11,12 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+  transition: opacity .6s, transform .6s;
 }
 
 html {
   height: 100%;
+  background: #eee;
 }
 
 body {
@@ -25,7 +27,23 @@ body {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: opacity .6s;
 }
+
+[data-status="loading"] {
+  opacity: 0 !important;
+}
+
+[data-effect="fade"] {
+  opacity: 0 !important;
+}
+
+[data-effect="fade-from-bottom"] {
+  opacity: 0 !important;
+  transform: translateY( calc( var(--radius) * .2 ) );
+}
+
+/* [data-status="loading"] */
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'DM Serif Display', serif;
@@ -62,12 +80,12 @@ a {
   border-bottom: black solid 2px;
 }
 
-.design {
+h1 .design {
   font-weight: 400;
   border-bottom: solid var( --color-design ) 8px;
 }
 
-.research {
+h1 .research {
   font-weight: 400;
   border-bottom: solid var( --color-research ) 8px;
 }
@@ -107,11 +125,11 @@ article {
   bottom: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
-.canvas {
-  background: #eee;
+.overlay {
+  background-image: url(media/noise.png)
 }
 
 .circles {
@@ -128,6 +146,10 @@ article {
   backface-visibility: hidden;
   perspective: 1000;
 }
+
+/*
+
+BLURRED CIRCLES FROM BOX-SHADOW
 
 .circle {
   position: relative;
@@ -158,6 +180,44 @@ article {
   animation-direction: alternate-reverse;
 }
 
+*/
+
+/*
+
+BLURRED CIRCLES FROM IMAGE
+
+*/
+
+.circle {
+  position: relative;
+  width: calc( var(--radius) * 4 );
+  height: calc( var(--radius) * 4 );
+  margin: calc( var(--radius) * -1 );
+  backface-visibility: hidden;
+  perspective: 1000;
+  opacity: .8;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: opacity 1s;
+}
+
+.circle.design {
+  background-image: url(media/design-field-representation.png);
+  animation-name: float;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.circle.research {
+  background-image: url(media/research-field-representation.png);
+  animation-name: float;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
 @keyframes float {
   0%   { transform: translateX( calc( var(--radius) * 0.0 ) ) translateZ(0) }
   20%  { transform: translateX( calc( var(--radius) * 0.5 ) ) translateZ(0) }
@@ -180,7 +240,7 @@ article {
 }
 
 footer {
-  padding: calc( var(--radius) * .5 ) 0 0;  
+  padding: calc( var(--radius) * .5 ) 0 0;
 }
 
 footer ul {
@@ -203,40 +263,40 @@ footer ul {
 }
 
 @media (max-width: 640px) {
-  
+
   :root {
-    --radius: 125px;
+    --radius: 144px;
   }
-  
+
   body {
     font-size: 18px;
   }
-  
+
   .container {
     padding: 0 calc( var(--radius) * .25 );
   }
-  
+
   h1 {
     font-size: 36px;
     line-height: 1.25;
   }
-  
+
   .profile {
     width: 100px;
   }
-  
-  a.design {
+
+  h1 .design {
     border-bottom: solid var( --color-design ) 4px;
   }
 
-  a.research {
+  h1 .research {
     border-bottom: solid var( --color-research ) 4px;
   }
 
   p + p {
     margin-top: 18px;
   }
-  
+
   article {
     padding: calc( var(--radius) * .75 ) 0;
   }
@@ -244,9 +304,5 @@ footer ul {
   .overlay {
     background-size: 50%;
   }
-  
-}
 
-.overlay {
-  background-image: url(media/noise.png)
 }
