@@ -22,6 +22,8 @@ const app = {
 
       elements.forEach( delayLoop( apply, delay ) );
 
+      console.log( 'app.effects.initialize(' + effect + ',' +  delay + ') ran' );
+
     },
 
     initialize : function() {
@@ -34,6 +36,8 @@ const app = {
 
       }, 400 );
 
+      console.log( 'app.effects.initialize() ran' );
+
     }
 
   },
@@ -44,15 +48,21 @@ const app = {
 
       app.element.dataset.status = 'loaded';
 
-      app.effects.initialize()
+      app.effects.initialize();
 
-    }, 600 )
+        console.log( 'app.load() -> setTimeout ran' );
+
+    }, 600 );
+
+    console.log( 'app.load() ran' );
 
   },
 
   initialize : function() {
 
     window.addEventListener( 'load', app.load() );
+
+    console.log( 'app.initialize() ran' );
 
   }
 
