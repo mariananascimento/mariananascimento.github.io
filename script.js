@@ -32,7 +32,7 @@ const app = {
 
         app.effects.apply( 'fade-from-bottom', 200 );
 
-      }, 400 );
+      }, 200 );
 
     }
 
