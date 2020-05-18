@@ -32,7 +32,7 @@ const app = {
 
         app.effects.apply( 'fade-from-bottom', 200 );
 
-      }, 200 );
+      }, 400 );
 
     }
 
@@ -49,9 +49,26 @@ const app = {
           app.element.dataset.status = 'loaded'
           app.effects.initialize()
 
-        }, 600 )
+          setTimeout( () => {
 
-      } )
+            document.querySelector('.loader').classList.add( 'pause' );
+
+          }, 800 )
+
+        }, 800 )
+
+      } );
+
+      setTimeout( () => {
+
+        if ( app.element.status == 'loading' ) {
+
+          app.element.dataset.status = 'loaded'
+          app.effects.initialize()
+
+        }
+
+      }, 4000 )
 
     },
 
