@@ -380,6 +380,9 @@ footer ul {
   bottom: 0;
   left: 0;
   pointer-events: none;
+
+  display: none; /* remove to enable work page */
+
 }
 
 .page-container {

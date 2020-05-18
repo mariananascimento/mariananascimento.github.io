@@ -138,7 +138,7 @@ const app = {
   initialize : function() {
 
     app.load.initialize()
-    app.pages.initialize()
+    // app.pages.initialize()   uncomment to enable work page
 
   }
 
