@@ -94,6 +94,10 @@ sup a {
   border: 0;
 }
 
+span.sup-container {
+  display: inline-flex;
+}
+
 h1 .design {
   font-weight: 400;
   border-bottom: solid var( --color-design ) 8px;
