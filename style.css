@@ -94,8 +94,8 @@ sup a {
   border: 0;
 }
 
-span.sup-container {
-  display: inline-flex;
+span.no-break {
+  white-space: nowrap;
 }
 
 h1 .design {
