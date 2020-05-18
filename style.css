@@ -89,6 +89,11 @@ button.link {
   transition: opacity .4s;
 }
 
+sup a {
+  margin-left: .25em;
+  border: 0;
+}
+
 h1 .design {
   font-weight: 400;
   border-bottom: solid var( --color-design ) 8px;
