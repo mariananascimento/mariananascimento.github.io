@@ -59,9 +59,20 @@ const app = {
 
   pages : {
 
+    loadImages : function( page ) {
+
+      let images = document.querySelectorAll( '#' + page + ' img[data-src]' )
+
+      for ( let image of images ) {
+        image.src = image.dataset.src
+      }
+
+    },
+
     open : function( page ) {
 
       app.element.dataset.open = page
+      app.pages.loadImages( page )
 
     },
 
