@@ -1,2 +1,0 @@
-# mariananascimento.github.io
-Portfolio
