@@ -556,7 +556,8 @@ footer ul {
 }
 
 #work .info .description .role {
-  margin-top: 1em;
+  margin-top: 1.5em;
+  line-height: 1.25;
 }
 
 #work .frame {
