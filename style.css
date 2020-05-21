@@ -380,9 +380,6 @@ footer ul {
   bottom: 0;
   left: 0;
   pointer-events: none;
-
-  display: none; /* remove to enable work page */
-
 }
 
 .page-container {
@@ -556,6 +553,10 @@ footer ul {
 
 #work .info .description {
   margin-top: .5em;
+}
+
+#work .info .description .role {
+  margin-top: 1em;
 }
 
 #work .frame {
