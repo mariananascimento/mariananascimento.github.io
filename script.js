@@ -138,7 +138,9 @@ const app = {
   initialize : function() {
 
     app.load.initialize()
-    app.pages.initialize()
+
+    // Uncomment to enable portfolio section
+    // app.pages.initialize()
 
   }
 
