@@ -427,6 +427,11 @@ footer ul {
   cursor: pointer;
 }
 
+/* Uncomment to enable portfolio section */
+[data-page] {
+  pointer-events: none !important;
+}
+
 .pages button[data-close] {
   position: relative;
   top: 0;
